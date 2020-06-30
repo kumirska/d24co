@@ -1,5 +1,5 @@
-### `Directa24` samples for debugging API
-#### Country for: Colombia
+### `D24` samples for debugging API
+#### Country for: CO
 
 Create config:
 
