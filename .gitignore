@@ -1,2 +1,3 @@
-/.idea/
-./credentials.php
+/.idea
+credentials.php
+/.DS_Store
