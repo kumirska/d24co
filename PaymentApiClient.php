@@ -111,7 +111,7 @@ class PaymentApiClient
 	{
 	    $curlHandler = curl_init();
         curl_setopt_array($curlHandler, array(
-            CURLOPT_URL => "https://api.directa24.com" . $uri,
+            CURLOPT_URL => "https://api-stg.directa24.com" . $uri,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,
