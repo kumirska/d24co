@@ -53,26 +53,26 @@ class PaymentApiClient
         string $address
     ): void {
 	     $payload = [
-            'login' => $this->login,
-            'pass' => $this->password,
-            'external_id' => $externalId,
-            'document_id' => $documentId,
-            'document_type' => $documentType,
-            'beneficiary_name' => $beneficiaryName,
-            'beneficiary_lastname' => $beneficiaryLastName,
-            'country' => $country,
-            'amount' => (string) $amount,
-            'currency' => $currency,
-            'email' => $email,
-            'bank_code' => $bankCode,
-            'bank_account' => $bankAccount,
             'account_type' => $accountType,
             'address' => $address,
+            'amount' => (string) $amount,
+            'bank_account' => $bankAccount,
+            'bank_code' => $bankCode,
+            'beneficiary_lastname' => $beneficiaryLastName,
+            'beneficiary_name' => $beneficiaryName,
+            'country' => $country,
+            'currency' => $currency,
+            'document_id' => $documentId,
+            'document_type' => $documentType,
+            'email' => $email,
+            'external_id' => $externalId,
+            'login' => $this->login,
+            'pass' => $this->password,
         ];
 
         $payloadSignature = $this->generateSignature($payload);
 
-        print 'jsonPayload: ' . json_encode($payload) . PHP_EOL;
+        print 'jsonPayload: ' . json_encode($payload, JSON_UNESCAPED_UNICODE) . PHP_EOL;
         print 'signature: ' . $payloadSignature . PHP_EOL;
 
         $result = $this->process('/v3/cashout', $payload, $payloadSignature);
@@ -93,7 +93,7 @@ class PaymentApiClient
 
         $payloadSignature = $this->generateSignature($payload);
 
-        print 'jsonPayload: ' . json_encode($payload) . PHP_EOL;
+        print 'jsonPayload: ' . json_encode($payload, JSON_UNESCAPED_UNICODE) . PHP_EOL;
         print 'signature: ' . $payloadSignature . PHP_EOL;
 
         $result = $this->process('/v3/cashout/status', $payload, $payloadSignature);
@@ -111,7 +111,7 @@ class PaymentApiClient
 	{
 	    $curlHandler = curl_init();
         curl_setopt_array($curlHandler, array(
-            CURLOPT_URL => "https://api-stg.directa24.com" . $uri,
+            CURLOPT_URL => "https://api.directa24.com" . $uri,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_TIMEOUT => 30,

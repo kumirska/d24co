@@ -20,19 +20,19 @@ $paymentApiClient = new PaymentApiClient(ACCOUNT_LOGIN, ACCOUNT_PASSWORD, ACCOUN
 //document_type        ( https://developers.directa24.com/#x_cpf-document_id )
 //address              ( string (maxLength: 200), Address of the beneficiary )
 
-$externalId = 'test1234567890_3';
-$documentId = '947628394';
+$externalId = 'test_' . time();
+$documentId = '947628398';
 $documentType = 'CE';
 $beneficiaryName = 'Carlos';
 $beneficiaryLastName = 'Sena';
 $country = 'CO';
-$amount = 0.1;
+$amount = 10;
 $currency = 'USD';
-$email = 'carlossena@mail.com';
+$email = 'carlossena4@mail.com';
 $bankCode = '003';
-$bankAccount = '93873628';
+$bankAccount = '93873631';
 $accountType = 'C';
-$address = 'Calle 18';
+$address = 'He, by 19';
 
 $paymentApiClient->cashout(
     $externalId,
